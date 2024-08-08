@@ -42,6 +42,10 @@ function modifyRedirectPaths(
 // https://astro.build/config
 export default defineConfig({
 	site: getSite(),
+  base: process.env.BASE || BASE_PATH,
+  redirects: key_value_from_json["redirects"]
+    ? modifyRedirectPaths(key_value_from_json["redirects"], process.env.BASE || BASE_PATH)
+	  : {},
 	integrations: [
 		// mdx({}),
 		tailwind({
