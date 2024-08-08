@@ -44,7 +44,6 @@ export default defineConfig({
 		}),
 		// astroImageTools,
 		buildTimestampRecorder(),
-		CustomIconDownloader(),
 		EntryCacheEr(),
 		PublicNotionCopier(),
 		DeleteBuildCache(),
