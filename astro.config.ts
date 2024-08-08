@@ -4,15 +4,31 @@ import tailwind from "@astrojs/tailwind";
 import path from "path";
 import { CUSTOM_DOMAIN, BASE_PATH } from "./src/constants";
 
-// Removed the duplicate import for CUSTOM_DOMAIN
-
 const getSite = function () {
-    if (CUSTOM_DOMAIN) {
-        return new URL(BASE_PATH, `https://${CUSTOM_DOMAIN}`).toString();
-    }
-    return ""; // Assuming you want to return an empty string if CUSTOM_DOMAIN is false
+	if (CUSTOM_DOMAIN) {
+		return new URL(BASE_PATH, `https://${CUSTOM_DOMAIN}`).toString();
+	}
+	if (process.env.VERCEL && process.env.VERCEL_URL) {
+		return new URL(BASE_PATH, `https://${process.env.VERCEL_URL}`).toString();
+	}
+	if (process.env.CF_PAGES) {
+		if (process.env.CF_PAGES_BRANCH !== "main") {
+			return new URL(BASE_PATH, process.env.CF_PAGES_URL).toString();
+		}
+		return new URL(
+			BASE_PATH,
+			`https://${new URL(process.env.CF_PAGES_URL).host.split(".").slice(1).join(".")}`,
+		).toString();
+	}
+	if (process.env.GITHUB_PAGES) {
+		return new URL(process.env.BASE || BASE_PATH, process.env.SITE).toString();
+	}
+	return new URL(BASE_PATH, "http://localhost:4321").toString();
 };
 
+
+
+import CustomIconDownloader from "./src/integrations/custom-icon-downloader";
 import EntryCacheEr from "./src/integrations/entry-cache-er";
 import PublicNotionCopier from "./src/integrations/public-notion-copier";
 import DeleteBuildCache from "./src/integrations/delete-build-cache";
