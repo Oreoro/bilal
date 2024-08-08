@@ -25,8 +25,7 @@ export const WEBMENTION_API_KEY =
 export const WEBMENTION_LINK = key_value_from_json["webmention"]["webmention-link"] || "";
 
 export const CUSTOM_DOMAIN =
-	"alexy.tech" ; // <- Set your custom domain if you have. e.g. alpacat.com
-export const BASE_PATH = process.env.BASE_PATH || key_value_from_json["base-path"] || ""; // <- Set sub directory path if you want. e.g. /docs/
+	"alexy.tech" ; // <- Set your custom domain if you have. e.g. alpacat.com // <- Set sub directory path if you want. e.g. /docs/
 
 export const NUMBER_OF_POSTS_PER_PAGE = key_value_from_json["number-of-posts-per-page"] || 10;
 export const REQUEST_TIMEOUT_MS = parseInt(
