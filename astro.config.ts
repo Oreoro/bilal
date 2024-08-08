@@ -1,13 +1,17 @@
 import { defineConfig } from "astro/config";
-// import { remarkReadingTime } from "./src/utils/remark-reading-time";
+// import { remarkReadingTime } from "./src/utils/remark-reading-time"; // Assuming this is commented out intentionally
 import tailwind from "@astrojs/tailwind";
 import path from "path";
 import { CUSTOM_DOMAIN, BASE_PATH } from "./src/constants";
-import  CUSTOM_DOMAIN from "./src/constants";
+
+// Removed the duplicate import for CUSTOM_DOMAIN
+
 const getSite = function () {
-	if (CUSTOM_DOMAIN) {
-		return new URL(BASE_PATH, `https://${CUSTOM_DOMAIN}`).toString();
-	};
+    if (CUSTOM_DOMAIN) {
+        return new URL(BASE_PATH, `https://${CUSTOM_DOMAIN}`).toString();
+    }
+    return ""; // Assuming you want to return an empty string if CUSTOM_DOMAIN is false
+};
 
 import EntryCacheEr from "./src/integrations/entry-cache-er";
 import PublicNotionCopier from "./src/integrations/public-notion-copier";
