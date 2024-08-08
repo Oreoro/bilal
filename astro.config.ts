@@ -7,23 +7,6 @@ const getSite = function () {
 	if (CUSTOM_DOMAIN) {
 		return new URL(`https://${CUSTOM_DOMAIN}`).toString();
 	}
-	if (process.env.VERCEL && process.env.VERCEL_URL) {
-		return new URL(BASE_PATH, `https://${process.env.VERCEL_URL}`).toString();
-	}
-	if (process.env.CF_PAGES) {
-		if (process.env.CF_PAGES_BRANCH !== "main") {
-			return new URL(BASE_PATH, process.env.CF_PAGES_URL).toString();
-		}
-		return new URL(
-			BASE_PATH,
-			`https://${new URL(process.env.CF_PAGES_URL).host.split(".").slice(1).join(".")}`,
-		).toString();
-	}
-	if (process.env.GITHUB_PAGES) {
-		return new URL(process.env.BASE || BASE_PATH, process.env.SITE).toString();
-	}
-	return new URL(BASE_PATH, "http://localhost:4321").toString();
-};
 import CustomIconDownloader from "./src/integrations/custom-icon-downloader";
 import EntryCacheEr from "./src/integrations/entry-cache-er";
 import PublicNotionCopier from "./src/integrations/public-notion-copier";
@@ -54,10 +37,6 @@ function modifyRedirectPaths(
 // https://astro.build/config
 export default defineConfig({
 	site: getSite(),
-	base: process.env.BASE || BASE_PATH,
-	redirects: key_value_from_json["redirects"]
-		? modifyRedirectPaths(key_value_from_json["redirects"], process.env.BASE || BASE_PATH)
-		: {},
 	integrations: [
 		// mdx({}),
 		tailwind({
