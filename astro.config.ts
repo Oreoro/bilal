@@ -68,6 +68,7 @@ export default defineConfig({
 			applyBaseStyles: false,
 		}),
 		// astroImageTools,
+    CustomIconDownloader(),
 		buildTimestampRecorder(),
 		EntryCacheEr(),
 		PublicNotionCopier(),
