@@ -5,7 +5,7 @@
 	"google-search-console-html-tag": "",
 	"socials": {
 		"email": "bilalpakistan2002@gmail.com",
-		"github": "github.com/oreoro",
+		"github": "oreoro",
 		"googlescholar": "",
 		"semanticscholar": "",
 		"dblp": "",
@@ -14,15 +14,15 @@
 		"threads": "",
 		"instagram": "",
 		"mastodon": "",
-		"this-github-repo": "https://github.com/nerdymomocat-templates/webtrotion-astro-notion-cms-website-blog"
+	
 	},
 	"custom-domain": "",
 	"base-path": "",
 	"giscus": {
-		"data-repo": "Oreoro/bilal",
+		"data-repo": "oreoro/oreoro.github.io",
 		"data-repo-id": "R_kgDOMg0fAQ",
 		"data-category": "Announcements",
-		"data-category-id": "DIC_kwDOK0FuUM4CbZ5A",
+		"data-category-id": "DIC_kwDOMg0fAc4Chehs",
 		"data-mapping": "pathname",
 		"data-input-position": "top",
 		"data-reactions-enabled": true
