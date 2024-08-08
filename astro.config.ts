@@ -7,7 +7,6 @@ const getSite = function () {
 	if (CUSTOM_DOMAIN) {
 		return new URL(`https://${CUSTOM_DOMAIN}`).toString();
 	}
-import CustomIconDownloader from "./src/integrations/custom-icon-downloader";
 import EntryCacheEr from "./src/integrations/entry-cache-er";
 import PublicNotionCopier from "./src/integrations/public-notion-copier";
 import DeleteBuildCache from "./src/integrations/delete-build-cache";
