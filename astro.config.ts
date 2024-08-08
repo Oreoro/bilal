@@ -2,10 +2,10 @@ import { defineConfig } from "astro/config";
 // import { remarkReadingTime } from "./src/utils/remark-reading-time";
 import tailwind from "@astrojs/tailwind";
 import path from "path";
-import { CUSTOM_DOMAIN, BASE_PATH } from "./src/constants";
+import  CUSTOM_DOMAIN from "./src/constants";
 const getSite = function () {
 	if (CUSTOM_DOMAIN) {
-		return new URL(BASE_PATH, `https://${CUSTOM_DOMAIN}`).toString();
+		return new URL(`https://${CUSTOM_DOMAIN}`).toString();
 	}
 	if (process.env.VERCEL && process.env.VERCEL_URL) {
 		return new URL(BASE_PATH, `https://${process.env.VERCEL_URL}`).toString();
