@@ -16,7 +16,7 @@
 		"mastodon": "",
 	
 	},
-	"custom-domain": "",
+	"custom-domain": "alexy.tech",
 	"base-path": "",
 	"giscus": {
 		"data-repo": "oreoro/oreoro.github.io",
